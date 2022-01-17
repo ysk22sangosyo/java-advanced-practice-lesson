@@ -12,10 +12,8 @@
     String result = "未実施";
 
     if (name != null && !name.isEmpty()) {
-        // このif分の中に、GameAppクラスを使った下記処理を記載してください。
-        // ・GameAppクラスのオブジェクトを作成し、itemフィールドに "何か" という文字列をセット
-        // ・GameAppオブジェクトのstartメソッドを呼び、戻り値を変数resultへ代入する
-        //   startメソッドの引数には、ユーザ名テキストボックスの入力を渡す
+    	// このif分の中で、GameAppクラスのstartメソッドを呼び出し、
+    	// 戻り値をresultに代入してください。
     }
 %>
 <!DOCTYPE html>
