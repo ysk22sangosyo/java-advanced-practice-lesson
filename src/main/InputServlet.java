@@ -38,33 +38,8 @@ public class InputServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*
-         * 以下のコメントを参考に、必要な処理を実装してください。
-         */
-
-        // 入力値取得
-
-
-        // 作成するオブジェクト用を保存するための変数を定義
-        Human human = null;
-
-        // 簡易登録かどうか判断用の変数
-        // 現在は仮でfalseをセット。
-        // 簡易登録の場合、true
-        // 詳細登録の場合、falseとする。
-        boolean isSimple = false;
-
-        // 選択した出身地により、各オブジェクトを作成し、
-        // 変数：humanに代入する
-        // ただし、簡易登録の場合、引数なしのコンストラクタを呼び、
-        // 詳細登録の場合、引数ありのコンストラクタを呼び、
-        // オブジェクトを作成する
-
-
-        // 作成したオブジェクトから表示する内容を取得
-
-
-        // リクエストスコープへ上記で取得した内容をセット
+        
+    	// ここに必要な処理を記述してください。
 
 
         // 結果画面へ
