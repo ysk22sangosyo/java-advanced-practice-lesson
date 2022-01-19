@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import app.CardGameApp;
+
 /**
  * Servlet implementation class StartAppServlet
  */
@@ -41,13 +43,27 @@ public class StartAppServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String name = request.getParameter("name");
 
-        if (name != null && !name.isEmpty()) {
-            // GameAppクラスのオブジェクトを作成
-            // (引数付きコンストラクタで、itemフィールドに "何か" をセット)
-            GameApp app = new GameApp("何か");
+        // ラジオボタンの選択値を取得
+        String appType = request.getParameter("appType");
 
-            // GameAppオブジェクトのstartメソッドを呼ぶ
-            String result = app.start(name);
+        if (name != null && !name.isEmpty()) {
+            GameApp app;
+
+            if (appType.equals("card")) {
+                // トランプを選択した場合は、CardGameAppクラスのオブジェクトを作成
+                // (引数付きコンストラクタで、itemフィールドに "トランプ" をセット)
+                app = new CardGameApp("トランプ");
+            } else {
+                // GameAppクラスのオブジェクトを作成
+                // (引数付きコンストラクタで、itemフィールドに "何か" をセット)
+                app = new GameApp("何か");
+            }
+
+            // アプリ実行結果のメッセージを入れるための変数
+            String result = "";
+
+            // startメソッドを呼び、戻り値を変数resultへ代入する
+            result = app.start(name);
 
             // リクエストスコープへセット
             request.setAttribute("result", result);
