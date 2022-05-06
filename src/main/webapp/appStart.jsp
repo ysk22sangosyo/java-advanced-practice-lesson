@@ -1,7 +1,6 @@
-<%--
-  GameAppクラス作成後、下記の記述が必要です。
+
   <%@ page import="app.GameApp"%>
- --%>
+ 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
@@ -9,9 +8,13 @@
     request.setCharacterEncoding("UTF-8");
     String name = request.getParameter("name");
 
+    
     String result = "未実施";
 
+    GameApp gameApp1 = new GameApp("ドキドキ！田中");
     if (name != null && !name.isEmpty()) {
+    	
+    	result = gameApp1.start(name);
     	// このif分の中で、GameAppクラスのstartメソッドを呼び出し、
     	// 戻り値をresultに代入してください。
     }

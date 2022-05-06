@@ -4,6 +4,35 @@
 <%
   //必要な処理を記述してください。
 
+request.setCharacterEncoding("UTF-8");
+String userId = request.getParameter("userId");
+String userName =request.getParameter("userName");
+String ageStr = request.getParameter("age");
+int age = Integer.parseInt(ageStr);
+User user = new User(userId,userName,age);
+
+
+User[] users = (User[])session.getAttribute("users");
+
+if (users == null) {
+    users = new User[5]; //最大件数：5
+}
+
+	String result = "これ以上ユーザーを登録できません";
+
+
+for (int count = 0; count < users.length; count++) {
+    if (users[count] == null) {
+         users[count] = user;
+    	 result = "ユーザーを登録しました。";
+    	 break;
+    }
+}
+
+session.setAttribute("users",users);
+
+
+
 %>
 <!DOCTYPE html>
 <html>
@@ -47,20 +76,23 @@ a.button {
     <span>現在の登録ユーザー</span><br>
 
     <%
+ 
         // 現在のユーザー情報を表示
-        for (User tempUser : users) {
+     for (User tempUser : users) {
             if (tempUser != null) {
+            	
                 // ユーザー情報を取得
                 // todo:
                 // 現在は変数のみ定義している。
-                // Userクラスの情報取得用メソッドを呼んだ値をセットするように修正。
-                String msg = "";
-
+                // Userクラスの情報取得用メソッドを呼んだ値をセットするように修
+                String msg = tempUser.returnUserInfo();
+                
+                
                 // ユーザー情報表示
                 out.println(msg);
                 out.println("<br>");
             }
-        }
+       }
     %>
   </p>
 

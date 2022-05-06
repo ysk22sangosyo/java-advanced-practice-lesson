@@ -2,7 +2,13 @@
   pageEncoding="UTF-8"%>
 <%
     // 必要な処理を記述してください。
+ request.setCharacterEncoding("UTF-8");
 
+String btn = request.getParameter("btn");
+
+if(btn.equals("reset")){
+	session.setAttribute("users",null);
+}
 %>
 <!DOCTYPE html>
 <html>
