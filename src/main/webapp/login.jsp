@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
-String id = (String) request.getAttribute("id");
-String password = (String) request.getAttribute("password");
+
 
 %>
 <!DOCTYPE html>
@@ -15,17 +15,19 @@ String password = (String) request.getAttribute("password");
 <body>
 
  <form action="LoginServlet" method="post">
-   <c:if test="${id != axiz || password != axizuser ||id != technocore || password != techno-pass} ">
-   IDまたはPASSが間違っています
-    </c:if>
-    <div>ID: <input type="text" name="id">
-     <c:if test="${empty id} ">
-   IDは必須です
+   <c:if test="${not empty error}">
+  	<span>${fn:escapeXml(error)}</span>
+   </c:if>
+   <div>ID: <input type="text" name="id">
+    <c:if test="${not empty id}">
+     <span>${fn:escapeXml(id)}</span>
     </c:if>
   </div>
   <div>  PASS: <input type="password" name="password">
-   <c:if test="${empty password}">
-   PASSは必須です
+   <c:if test="${not empty (password)}">
+
+   <span>${fn:escapeXml(password)}</span>
+   
    </c:if>
 </div>
 

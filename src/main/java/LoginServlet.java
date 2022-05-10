@@ -38,20 +38,29 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 	String id = request.getParameter("id");
+	System.out.println(id);
     String password = request.getParameter("password");
-	if (id.isEmpty() || password.isEmpty()) {
-	request.setAttribute("id", id);
-    request.setAttribute("password", password);
+    if(Utility.isNullOrEmpty(id) && Utility.isNullOrEmpty(password)) {
+    	request.setAttribute("id", "IDは必須です");
+    	request.setAttribute("password", " PASSは必須です");
+    	request.getRequestDispatcher("/login.jsp").forward(request, response);
+    	System.out.println("ida");
+    }else if (Utility.isNullOrEmpty(id)) {
+	request.setAttribute("id", "IDは必須です");
 	request.getRequestDispatcher("/login.jsp").forward(request, response);
-	}else if(id.equals("axiz") && password.equals("axizuser") ||id.equals("technocore") && password.equals("techno-pass")) {
-    request.setAttribute("id", id);
-    request.setAttribute("password", password);
+    }else if (Utility.isNullOrEmpty(password)) {
+	request.setAttribute("password", " PASSは必須です");
+	request.getRequestDispatcher("/login.jsp").forward(request, response);
+	
+    }
+    else if((id.equals("axiz") && password.equals("axizuser")) ||(id.equals("technocore") && password.equals("techno-pass"))) {
+	request.setAttribute("id", id);	
+	request.setAttribute("password", password);	
 	request.getRequestDispatcher("/result.jsp").forward(request, response);
 	} else {
-	request.setAttribute("id", id);
-    request.setAttribute("password", password);
-    request.getRequestDispatcher("/login.jsp").forward(request, response);	
+		request.setAttribute("error", "IDまたはPASSが間違っています");	
+		request.getRequestDispatcher("/login.jsp").forward(request, response);
 	}
-
+   
     }
 }
