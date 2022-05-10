@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
      */
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
@@ -38,13 +38,11 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 	String id = request.getParameter("id");
-	System.out.println(id);
     String password = request.getParameter("password");
     if(Utility.isNullOrEmpty(id) && Utility.isNullOrEmpty(password)) {
     	request.setAttribute("id", "IDは必須です");
     	request.setAttribute("password", " PASSは必須です");
     	request.getRequestDispatcher("/login.jsp").forward(request, response);
-    	System.out.println("ida");
     }else if (Utility.isNullOrEmpty(id)) {
 	request.setAttribute("id", "IDは必須です");
 	request.getRequestDispatcher("/login.jsp").forward(request, response);
