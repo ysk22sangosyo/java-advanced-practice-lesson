@@ -38,7 +38,7 @@ body {
     <h3>アプリの実行結果</h3>
     
     <c:if test="${not empty result}">
-     <p><%=result%> </p>
+     <p>result </p>
     </c:if>
    
     
@@ -52,7 +52,9 @@ body {
     <br>
     <label>アプリ：</label>
     <input type="radio" name="app" value="tranp" checked >トランプ
-     <input type="radio" name="app" value="game" >ゲーム
+    <input type="radio" name="app" value="darts" >ダーツ
+    <input type="radio" name="app" value="clock" >時計
+    <input type="radio" name="app" value="others" >その他
     <br>
     <button type="submit">実行</button>
   </form>

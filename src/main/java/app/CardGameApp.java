@@ -1,14 +1,14 @@
 package app;
 
-public class CardGameApp extends GameApp {
+public class CardGameApp extends GameApp implements App {
  public CardGameApp() {
 	 
  }
  public CardGameApp(String item) {
 	 super(item);
  }
- public String start(String name) {
-	 String tranpStart= (name+"さんと"+this.item+"でゲームを開始します。ババ抜きを行います");
+ public String play() {
+	 String tranpStart= ("ババ抜きを行います。");
 	 return tranpStart;
  }
 }

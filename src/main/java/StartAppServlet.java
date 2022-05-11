@@ -7,9 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import app.CardGameApp;
-import app.GameApp;
 /**
  * Servlet implementation class StartAppServlet
  */
@@ -39,27 +36,35 @@ public class StartAppServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+		
 	    request.setCharacterEncoding("UTF-8");
 	    String name = request.getParameter("name");
 	    String tranp = request.getParameter("app");
+	    String darts = request.getParameter("app");
+	    String clock = request.getParameter("app");
+	    String others  = request.getParameter("app");
 	    String result = "";
 	  
-	    GameApp gameApp1 = new GameApp("ドキドキ！田中");
-	    CardGameApp gameApp2 = new CardGameApp("トランプ");
+	   
 	    if (name != null && !name.isEmpty()) {
-	    	result = gameApp1.start(name);
+	    	result = "";
+	    if(tranp.equals("tranp")) {
+	        result = "aaa";
+	    }
+	    if(darts.equals("darts")) {
+	        result = "aaaa";
+	    }
+	    if(clock.equals("clock")) {
+	        result = "a";
+	    }
+	    if(others.equals("others")) {
+	        result = "アプリの実行に失敗しました。";
+	    }
 	    	
-	    	if(tranp.equals("tranp")) {
-	        result = gameApp2.start(name);
-	    	}
-	    	// このif分の中で、GameAppクラスのstartメソッドを呼び出し、
-	    	// 戻り値をresultに代入してください。
 	    
 	    }
 	    request.setAttribute("result", result);
-  	  request.getRequestDispatcher("/appStart.jsp").forward(request, response);
+  	    request.getRequestDispatcher("/appStart.jsp").forward(request, response);
 	}
 
 }
