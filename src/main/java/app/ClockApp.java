@@ -7,8 +7,7 @@ import java.util.Date;
  * 時計アプリを表すクラス
  */
 public class ClockApp  implements App {
-
-    /**
+	 /**
      * アプリを開始するメソッド (オーバーライド)
      */
 	@Override
