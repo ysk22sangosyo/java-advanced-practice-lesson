@@ -38,7 +38,7 @@ body {
     <h3>アプリの実行結果</h3>
     
     <c:if test="${not empty result}">
-     <p>result </p>
+     <p>${result}</p>
     </c:if>
    
     

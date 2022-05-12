@@ -11,6 +11,7 @@ public class ClockApp  implements App {
     /**
      * アプリを開始するメソッド (オーバーライド)
      */
+	@Override
     public String start(String userName) {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

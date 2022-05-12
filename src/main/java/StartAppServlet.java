@@ -7,6 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import app.App;
+import app.CardGameApp;
+import app.ClockApp;
+import app.DartsGameApp;
 /**
  * Servlet implementation class StartAppServlet
  */
@@ -39,32 +44,31 @@ public class StartAppServlet extends HttpServlet {
 		
 	    request.setCharacterEncoding("UTF-8");
 	    String name = request.getParameter("name");
-	    String tranp = request.getParameter("app");
-	    String darts = request.getParameter("app");
-	    String clock = request.getParameter("app");
-	    String others  = request.getParameter("app");
+	    String app = request.getParameter("app");
 	    String result = "";
-	  
+	    App a = null;
 	   
-	    if (name != null && !name.isEmpty()) {
-	    	result = "";
-	    if(tranp.equals("tranp")) {
-	        result = "aaa";
+	    if(name != null && !name.isEmpty()) {
+	    	if(app.equals("others")){
+	    		result = "アプリの実行に失敗しました。"; 
+	    	} else {
+	    		switch(app) {
+	    		case "tranp": 
+	    			a =new CardGameApp ("トランプ");
+	    			break;
+	    		case "darts":
+	    			a = new DartsGameApp("ダーツ");
+	    			break;
+	    		case "clock" :
+	    			a = new ClockApp ();
+	    			break;
+	    		}
+	         result = a.start(name);
+	    	}
 	    }
-	    if(darts.equals("darts")) {
-	        result = "aaaa";
-	    }
-	    if(clock.equals("clock")) {
-	        result = "a";
-	    }
-	    if(others.equals("others")) {
-	        result = "アプリの実行に失敗しました。";
-	    }
-	    	
 	    
-	    }
 	    request.setAttribute("result", result);
   	    request.getRequestDispatcher("/appStart.jsp").forward(request, response);
 	}
-
+	    
 }

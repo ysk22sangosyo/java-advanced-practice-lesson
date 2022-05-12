@@ -12,7 +12,7 @@ public abstract class GameApp implements App{
 	
 	public  abstract String play();
 	public  String start(String userName) {
-		String gameStart= (userName+"さんと"+play()+"でゲームを開始します");
+		String gameStart= (userName+"さんと"+ item +"でゲームを開始します"+ play());
 		 return gameStart;
 	}
 }
