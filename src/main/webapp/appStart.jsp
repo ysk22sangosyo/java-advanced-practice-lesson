@@ -37,10 +37,13 @@ body {
   <div class="result">
     <h3>アプリの実行結果</h3>
     
-    <c:if test="${not empty result}">
+    
+     <c:if test="${not empty result}">
      <p>${result}</p>
-    </c:if>
-   
+     </c:if>
+     <c:if test="${gameApp.getplayTime()}">
+     <p>${playTime}</p>
+     </c:if>
     
   
  

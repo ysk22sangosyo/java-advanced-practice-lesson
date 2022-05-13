@@ -12,6 +12,7 @@ import app.App;
 import app.CardGameApp;
 import app.ClockApp;
 import app.DartsGameApp;
+import app.GameApp;
 /**
  * Servlet implementation class StartAppServlet
  */
@@ -65,10 +66,15 @@ public class StartAppServlet extends HttpServlet {
 	    		}
 	         result = a.start(name);
 	    	}
+	    	 if(a instanceof GameApp) {
+	    		 GameApp gameApp = (GameApp)a;
+	    		 request.setAttribute("playTime", gameApp.getplayTime());
+	 	    }
 	    }
 	    
 	    request.setAttribute("result", result);
   	    request.getRequestDispatcher("/appStart.jsp").forward(request, response);
 	}
+	
 	    
 }
