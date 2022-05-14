@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class Dictionary {
 
     /**
-     * 英単語情報を表すHashMap (Key：英語、Value：日本語)
+     * HashMap (Key：英語、Value：日本語)
      */
     private HashMap<String, String> dictionaryInfo;
 
@@ -17,7 +17,7 @@ public class Dictionary {
 
     	dictionaryInfo = new HashMap<String, String>();
     	
-    	// ここに英単語情報を登録する処理を記述してください。
+    	//HashMapの情報
         dictionaryInfo.put("apple","りんご");
         dictionaryInfo.put("orange","みかん");
         dictionaryInfo.put("peach","もも");

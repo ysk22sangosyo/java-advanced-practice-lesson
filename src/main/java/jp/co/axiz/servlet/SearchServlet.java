@@ -29,7 +29,6 @@ public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	// ここに必要な処理を記述してください。
         String english = request.getParameter("english");
         Dictionary Value = new Dictionary();
         HashMap<String, String> hash = Value.getDictionaryInfo();
