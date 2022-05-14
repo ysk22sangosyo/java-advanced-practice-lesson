@@ -1,4 +1,4 @@
-package servlet;
+package jp.co.axiz.servlet;
 
 import java.util.HashMap;
 
@@ -18,7 +18,15 @@ public class Dictionary {
     	dictionaryInfo = new HashMap<String, String>();
     	
     	// ここに英単語情報を登録する処理を記述してください。
-
+        dictionaryInfo.put("apple","りんご");
+        dictionaryInfo.put("orange","みかん");
+        dictionaryInfo.put("peach","もも");
+        dictionaryInfo.put("grape","ぶどう");
+        dictionaryInfo.put("pear","なし");
+        
+      
+        	
+       
     }
 
 

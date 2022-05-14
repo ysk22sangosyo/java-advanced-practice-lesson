@@ -1,13 +1,13 @@
-package servlet;
+package jp.co.axiz.servlet;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  * Servlet implementation class StartAppServlet
  */
@@ -30,7 +30,18 @@ public class SearchServlet extends HttpServlet {
             throws ServletException, IOException {
     	
     	// ここに必要な処理を記述してください。
-
+        String english = request.getParameter("english");
+        Dictionary Value = new Dictionary();
+        HashMap<String, String> hash = Value.getDictionaryInfo();
+        if(english != null && !english.isEmpty()) {
+          if(Value.getDictionaryInfo().containsKey(english)){
+        	  
+        request.setAttribute("result","英語:"+english+","+"日本語"+hash.get(english));	  
+          } else {
+        request.setAttribute("result","見つかりませんでした");
+          }
+          
+        }
         request.getRequestDispatcher("dictionary.jsp").forward(request, response);
     }
 
