@@ -40,7 +40,7 @@ public class InputServlet extends HttpServlet {
             throws ServletException, IOException {
         
     	// ここに必要な処理を記述してください。
-
+//8の発展
 
         // 結果画面へ
         request.getRequestDispatcher("result.jsp").forward(request, response);
