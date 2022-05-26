@@ -7,47 +7,48 @@ import jp.co.axiz.app.DartsGameApp;
 import jp.co.axiz.app.GameApp;
 
 public class AppUtil {
-	public static boolean isGameApp(App App){
-		if(App instanceof GameApp) {
+	public static boolean isGameApp(App app){
+		if(app instanceof GameApp) {
 		return true;
-		}
+		} else {
 		return false;
-		
+		}	
 	}
-   public static boolean isCardGameApp(App App) {
-	   if(App instanceof CardGameApp) {
+   public static boolean isCardGameApp(App app) {
+	   if(app instanceof CardGameApp) {
 			return true;
-			}
+			} else {
 			return false;
-			
-		
+			}
    }
-   public static boolean isDartsGameApp(App App) {
-	   if(App instanceof DartsGameApp) {
+   public static boolean isDartsGameApp(App app) {
+	   if(app instanceof DartsGameApp) {
 			return true;
-			}
+			} else {
 			return false;
+			}
    }
-   public static boolean isClockApp(App App) {
-	   if(App instanceof ClockApp) {
+   public static boolean isClockApp(App app) {
+	   if(app instanceof ClockApp) {
 			return true;
-			}
+			} else {
 			return false;
+			}
    }
-   public static String getAppName(App App) {
+   public static String getAppName(App app) {
 	   String game ="";
-	   if(isCardGameApp(App)) {
-		   game = ("ゲーム:カード");
+	   if(isGameApp(app)) {
+		   game = "ゲーム:";
+		   if(isCardGameApp(app)) {
+		   game += "カード";
+	   }else if(isDartsGameApp(app)) {
+		   game += "ダーツ";
+	   		}
+	   }else if(isClockApp(app)) {
+		   game = "時計";
 	   }
-	   if(isDartsGameApp(App)) {
-		   game = ("ゲーム:ダーツ");
-	   }
-	   if(isClockApp(App)) {
-		   game = ("時計");
-	   }
-	   if(isGameApp(App)) {
-		   game = ("ゲーム:"+App);
-	   }
+	 
+	   
 	   return game;
    }
 }
